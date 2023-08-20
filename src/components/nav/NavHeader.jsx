@@ -49,10 +49,10 @@ function NavHeader(){
                     <Link to="../about"  onMouseOver={(e)=>popUp(e,"about")} >About</Link>
                 </li>
                 <li>
-                    <Link to="../products/clothing" onMouseOver={(e)=>popUp(e,"clothing")}>Clothing</Link>
+                    <Link to="../products/" onMouseOver={(e)=>popUp(e,"clothing")}>Clothing</Link>
                 </li>
                 <li>
-                    <Link to="../products/bags" onMouseOver={(e)=>popUp(e,"bags")}>Bags</Link>
+                    <Link to="../products/" onMouseOver={(e)=>popUp(e,"bags")}>Bags</Link>
                 </li>
             </ul>
             {

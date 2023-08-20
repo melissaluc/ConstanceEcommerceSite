@@ -1,0 +1,29 @@
+
+.gallery{
+    &__product-card{
+        width: 25vw;
+        height: 40vh;
+        border: 1px solid gray;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        // * {
+        //     border: 1px solid blue;
+        // }
+        
+        
+    }
+    &__product-details{
+        display: flex;
+        flex-direction: column;
+        // justify-content: flex-start;
+        align-items: flex-start;
+    }
+    &__product-img{
+        width: 25vw;
+        height: 40vh;
+        background-color: gray;
+
+    }
+}
