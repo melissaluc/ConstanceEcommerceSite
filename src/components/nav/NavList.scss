@@ -1,0 +1,10 @@
+.nav {
+    &__main-category{
+        // display: flex;
+        max-width: 20vw;
+    }
+    &__secondary-category:hover{
+        background-color: aqua;
+    }
+
+}

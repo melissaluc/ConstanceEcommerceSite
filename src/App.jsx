@@ -1,5 +1,5 @@
 import logo from './logo.svg';
-import './App.css';
+import './App.scss';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import LandingPage from './pages/LandingPage';
 import AboutPage from './pages/AboutPage';
@@ -12,12 +12,15 @@ import CartPage from './pages/CartPage';
 import CheckoutPage from './pages/CheckoutPage';
 import UserPage from './pages/UserPage';
 
+import NavHeader from './components/nav/NavHeader';
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
+        <NavHeader />
         <Routes>
+          <Route path='/' element={<LandingPage/>}/>
           <Route path='/home' element={<LandingPage/>}/>
           <Route path='/about' element={<AboutPage/>}/>
           <Route path='/contact' element={<ContactPage/>}/>

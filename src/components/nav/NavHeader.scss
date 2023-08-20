@@ -1,0 +1,51 @@
+* {
+     padding:0px;
+     margin:0px;
+     box-sizing: border-box;
+}
+
+.nav {
+    position: sticky;
+    top:0;
+    transition: background-color   0.75s ease-out 1ms;
+    
+    &__logo{
+        g, path {
+            fill: rgb(15, 1, 44);
+
+        }
+
+    }
+
+    &__links>*:hover {
+        // background-color: aqua;
+        border-bottom: 5px solid red;
+    }
+
+    &__top{
+
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+    &__links{
+        display: flex;
+        justify-content: space-around;
+    }
+    &__icons {
+        height:1rem;
+        width: auto;
+    }
+}
+
+// @keyframes navTransition {
+//     from {background-color:rgba(233, 149, 254, 0);}
+// }
+
+.nav:hover {
+    // background-color:rgba(233, 149, 254, 1);
+    background-color:rgba(233, 149, 254, 1);
+
+}
+
+
