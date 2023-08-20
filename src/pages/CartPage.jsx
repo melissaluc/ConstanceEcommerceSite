@@ -1,6 +1,10 @@
+import Cart from "../components/cart/Cart";
+
 function CartPage(){
     return(
-        <h1>Cart Page</h1>
+        <div>
+            <Cart/>
+        </div>
     )
 }
 

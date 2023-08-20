@@ -1,0 +1,20 @@
+
+.cart{
+    &__line-item{
+        border: 1px solid blue ;
+        width:80vw;
+        display: flex;
+        justify-content: space-between;
+
+    }
+    &__product-img{
+
+    }
+    &__info{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+
+    }
+}
