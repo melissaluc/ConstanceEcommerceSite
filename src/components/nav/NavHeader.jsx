@@ -7,17 +7,20 @@ import {ReactComponent as CartIcon} from '../../assets/icons/shopping-bag-outlin
 import {ReactComponent as BrandIcon} from '../../assets/icons/brandicon.svg'
 
 
-function NavHeader({isLoggedIn}){
+function NavHeader({isLoggedIn, cartCounter, handleLogin}){
 
     const [showNavPane, setShowNavPane] = useState(false)
     const [navLinkTxt, setNavLinkTxt] = useState("")
-    const [cartCounter, setCartCounter] = useState(0)
 
-    
+
+    const handleLogout = ()=>{
+        handleLogin(false)
+    }
 
 
     const popUp = (e, linktxt)=>{
         setNavLinkTxt(linktxt)
+        sessionStorage.removeItem("authToken")
         setShowNavPane(true)
     }
 
@@ -37,6 +40,7 @@ function NavHeader({isLoggedIn}){
 
                     </div>
                     {isLoggedIn? <Link to="../user">Account</Link>:<Link to="../login">Login</Link>}
+                    {isLoggedIn && <button onClick={handleLogout}>Logout</button>}
                     <Search/>
                 </div>
             </div>

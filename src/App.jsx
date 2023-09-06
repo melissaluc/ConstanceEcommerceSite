@@ -16,7 +16,8 @@ import {useState} from 'react'
 
 function App() {
 
-  const [isLoggedIn,setLogIn] = useState(false)
+  const [isLoggedIn,setLogIn] = useState(sessionStorage.getItem('authToken')?true: false)
+  const [cartCounter, setCartCounter] = useState(0)
 
   const handleLogin = (state)=>{
     setLogIn(state)
@@ -24,7 +25,7 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <NavHeader isLoggedIn={isLoggedIn}/>
+        <NavHeader isLoggedIn={isLoggedIn} cartCounter={cartCounter} handleLogin={handleLogin}/>
         <Routes>
           <Route path='/' element={<LandingPage/>}/>
           <Route path='/home' element={<LandingPage/>}/>

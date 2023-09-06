@@ -19,7 +19,7 @@ function LoginForm ({handleLogin}) {
             "Content-Type":"application/json; charset=utf-8"
         }})
         .then((res)=>{
-            sessionStorage.authToken = res.data.token
+            sessionStorage.setItem('authToken',JSON.stringify(res.data.token));
             navigate(`../home`)
             handleLogin(true)
         })
