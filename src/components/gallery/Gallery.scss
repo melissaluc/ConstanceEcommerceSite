@@ -1,4 +1,10 @@
 .gallery {
     display: flex;
     margin: 30px;
+
+    &__products{
+        display: flex;
+        flex-wrap: wrap;
+        grid-gap:5vw;
+    }
 }

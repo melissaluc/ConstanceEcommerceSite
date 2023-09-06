@@ -1,11 +1,11 @@
 import LoginForm from '../components/forms/LoginForm'
 
 
-function LoginPage(){
+function LoginPage({handleLogin}){
     return(
         <div>
             <h1>Login Page</h1>
-            <LoginForm/>
+            <LoginForm handleLogin={handleLogin}/>
         </div>
 
     )

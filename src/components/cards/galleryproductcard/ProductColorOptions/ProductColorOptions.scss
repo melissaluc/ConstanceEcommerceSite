@@ -1,0 +1,110 @@
+.gallery{
+
+    &__colorblock{
+        display: flex;
+        flex-direction: row;
+        // width:100%;
+        // justify-content: center;
+        align-items: center;
+    }
+    &__colorblock-row{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        width:20px;
+        height:20px;
+        border-radius: 50%;
+
+    }
+
+    &__colorblock-black{
+      @extend .gallery__colorblock-row;
+        background-color: black;
+    }
+    &__colorblock-yellow{
+      @extend .gallery__colorblock-row;
+        background-color: 	rgb(251, 206, 177);
+        
+    }
+    &__colorblock-green{
+      @extend .gallery__colorblock-row;
+        background-color: rgb(0,155,119);
+        
+    }
+    &__colorblock-pink{
+      @extend .gallery__colorblock-row;
+        background-color: rgb(225,192,203);
+        
+    }
+    &__colorblock-grey{
+      @extend .gallery__colorblock-row;
+        background-color: rgb(54, 69, 79);
+        
+    }
+    &__colorblock-lilac{
+      @extend .gallery__colorblock-row;
+        background-color: rgb(230,215,255);
+        
+    }
+    &__colorblock-acid_black{
+      @extend .gallery__colorblock-row;
+        background-color: rgb(23, 23, 24);
+        
+    }
+    &__colorblock-sapphire_blue{
+      @extend .gallery__colorblock-row;
+        background-color: rgb(4, 61, 248);
+        
+    }
+    &__colorblock-acid_wash{
+      @extend .gallery__colorblock-row;
+        background-color: rgb(37, 35, 35);
+        
+    }
+    &__colorblock-blue{
+      @extend .gallery__colorblock-row;
+        background-color: rgb(0, 4, 255);
+        
+    }
+    &__colorblock-tan{
+      @extend .gallery__colorblock-row;
+        background-color: black;
+        
+        
+    }
+    &__colorblock-taupe{
+      @extend .gallery__colorblock-row;
+        background-color: black;
+        
+    }
+    &__colorblock-light_brown{
+      @extend .gallery__colorblock-row;
+        background-color: black;
+        
+    }
+    &__colorblock-burgundy{
+      @extend .gallery__colorblock-row;
+        background-color: black;
+        
+    }
+    &__colorblock-white{
+      @extend .gallery__colorblock-row;
+        background-color: black;
+        
+    }
+    &__colorblock-red{
+      @extend .gallery__colorblock-row;
+        background-color: black;
+        
+    }
+    &__colorblock-saddle_brown{
+      @extend .gallery__colorblock-row;
+        background-color: rgb(136, 69, 19);
+
+    }
+}
+
+.gallery__colorblock-row:hover {
+    border: 1.5px solid white;
+}

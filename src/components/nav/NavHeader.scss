@@ -1,3 +1,8 @@
+@use '../../styles/mixins' as *;
+@use '../../styles/globals' as *;
+@use '../../styles/variables' as *;
+
+
 * {
      padding:0px;
      margin:0px;
@@ -5,13 +10,14 @@
 }
 
 .nav {
+    background-color:rgba(255, 255, 255, 0.777);
     position: sticky;
     top:0;
     transition: background-color   0.75s ease-out 1ms;
     
     &__logo{
         g, path {
-            fill: rgb(15, 1, 44);
+            fill: rgb(1, 0, 3);
 
         }
 
@@ -19,7 +25,7 @@
 
     &__links>*:hover {
         // background-color: aqua;
-        border-bottom: 5px solid red;
+        border-bottom: 5px solid rgba(13, 13, 170, 0.551);
     }
 
     &__top{
@@ -44,7 +50,7 @@
 
 .nav:hover {
     // background-color:rgba(233, 149, 254, 1);
-    background-color:rgba(233, 149, 254, 1);
+    background-color:rgb(254, 254, 254);
 
 }
 

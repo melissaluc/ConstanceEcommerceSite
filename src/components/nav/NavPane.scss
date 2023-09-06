@@ -1,3 +1,8 @@
+@use '../../styles/mixins' as *;
+@use '../../styles/globals' as *;
+@use '../../styles/variables' as *;
+
+
 .nav {
     &__pane{
         display: flex;

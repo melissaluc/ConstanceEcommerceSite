@@ -7,13 +7,13 @@ import {ReactComponent as CartIcon} from '../../assets/icons/shopping-bag-outlin
 import {ReactComponent as BrandIcon} from '../../assets/icons/brandicon.svg'
 
 
-function NavHeader(){
-    const [isLoggedIn,setLogin] = useState(null);
+function NavHeader({isLoggedIn}){
+
     const [showNavPane, setShowNavPane] = useState(false)
     const [navLinkTxt, setNavLinkTxt] = useState("")
     const [cartCounter, setCartCounter] = useState(0)
 
-
+    
 
 
     const popUp = (e, linktxt)=>{
@@ -49,10 +49,13 @@ function NavHeader(){
                     <Link to="../about"  onMouseOver={(e)=>popUp(e,"about")} >About</Link>
                 </li>
                 <li>
-                    <Link to="../products/" onMouseOver={(e)=>popUp(e,"clothing")}>Clothing</Link>
+                    <Link to="../products/clothing" onMouseOver={(e)=>popUp(e,"clothing")}>Clothing</Link>
                 </li>
                 <li>
-                    <Link to="../products/" onMouseOver={(e)=>popUp(e,"bags")}>Bags</Link>
+                    <Link to="../products/athleasure" onMouseOver={(e)=>popUp(e,"athleisure")}>Athleisure</Link>
+                </li>
+                <li>
+                    <Link to="../products/bags" onMouseOver={(e)=>popUp(e,"bags")}>Bags</Link>
                 </li>
             </ul>
             {
