@@ -1,10 +1,17 @@
 import Cart from "../components/cart/Cart";
 
-function CartPage(){
+function CartPage({cartCounter,setCartCounter}){
     return(
         <div>
-            <Cart/>
+            {cartCounter==0?
+            <h2>Nothing</h2>:
+            <div>
+                <Cart/>
+            </div>
+            }    
+
         </div>
+
     )
 }
 

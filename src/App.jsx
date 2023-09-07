@@ -43,7 +43,7 @@ function App() {
           <Route path='/collection/:category_1' element={<ProductsPage/>}/>
           <Route path='/login' element={<LoginPage handleLogin={handleLogin}/>}/>
           <Route path='/signup' element={<SignupPage/>}/>
-          <Route path='/cart' element={<CartPage/>}/>
+          <Route path='/cart' element={<CartPage cartCounter={cartCounter} setCartCounter={setCartCounter}/>}/>
           <Route path='/checkout' element={<CheckoutPage/>}/>
           <Route path='/user' element={<UserPage/>}/>
         </Routes>
