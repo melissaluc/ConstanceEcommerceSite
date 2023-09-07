@@ -2,8 +2,9 @@ import './NavPane.scss'
 import NavList from './NavList';
 import axios from 'axios'
 import {useState, useEffect} from 'react'
+import { useCategory2 } from "../Category2Context";
 
-function NavPane({navLinkTxt}){
+function NavPane({navLinkTxt, selectedCategory, selectedCategory2, updateCategory2}){
     const URL = 'http://localhost:5000/api/v1/product_inventory/categories'
 
     const [products,setProducts] = useState([])
@@ -29,7 +30,7 @@ function NavPane({navLinkTxt}){
         <div className='nav__pane'>
 
             {/* I'm a Pain! {navLinkTxt} */}
-            <NavList products={products} navLinkTxt={navLinkTxt}/>
+            <NavList products={products} navLinkTxt={navLinkTxt} selectedCategory2={selectedCategory2} updateCategory2={updateCategory2}/>
             {/* <NavList section='bags' products={bags}/> */}
         </div>
     )}

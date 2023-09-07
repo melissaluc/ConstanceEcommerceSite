@@ -48,9 +48,30 @@
 //     from {background-color:rgba(233, 149, 254, 0);}
 // }
 
-.nav:hover {
+.nav:hover, .nav>*:hover {
     // background-color:rgba(233, 149, 254, 1);
-    background-color:rgb(254, 254, 254);
+    color:white;
+    background-color:rgb(255, 255, 255);
+    .nav>*:hover{
+        
+    }
+    Link,ul,a{
+
+            color:rgb(61, 61, 61);
+
+    }
+
+    g[featurekey="symbolFeature-0"]>path{
+        //  Symbol
+        fill: rgb(50, 50, 50);
+
+    }
+    g[featurekey="nameFeature-0"]>path, g[featurekey="sloganFeature-0"]>path {
+        // text
+        fill: rgb(28, 28, 28);
+
+    }
+
 
 }
 

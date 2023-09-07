@@ -1,16 +1,24 @@
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useState } from "react";
 import './NavHeader.scss'
 import NavPane from "./NavPane";
 import Search from "../search/Search";
 import {ReactComponent as CartIcon} from '../../assets/icons/shopping-bag-outline.svg'
 import {ReactComponent as BrandIcon} from '../../assets/icons/brandicon.svg'
-
+import { useCategory } from "../CategoryContext";
+import { useCategory2 } from "../Category2Context";
 
 function NavHeader({isLoggedIn, cartCounter, handleLogin}){
-
+    const { selectedCategory, updateCategory } = useCategory("");
+    const { selectedCategory2, updateCategory2 } = useCategory2("");
     const [showNavPane, setShowNavPane] = useState(false)
     const [navLinkTxt, setNavLinkTxt] = useState("")
+    
+
+    const handleCategoryClick = (category) => {
+        updateCategory(category);
+        updateCategory2(null)
+      };
 
 
     const handleLogout = ()=>{
@@ -45,21 +53,21 @@ function NavHeader({isLoggedIn, cartCounter, handleLogin}){
                 </div>
             </div>
             <ul className="nav__links">
-                <li>
+                <li key='contact'>
                     {/* TODO: creater link components input text to show maintain the same dimentions and styling */}
-                    <Link to="../contact" onMouseOver={(e)=>popUp(e,"contact")} >Contact</Link>
+                    <Link to="../contact">CONTACT</Link>
+                </li>
+                <li key='about'>
+                    <Link to="../about" >ABOUT</Link>
                 </li>
                 <li>
-                    <Link to="../about"  onMouseOver={(e)=>popUp(e,"about")} >About</Link>
+                    <Link to={`../collection/clothing`} onMouseOver={(e)=>popUp(e,"clothing")} onClick={() => handleCategoryClick("clothing")}>CLOTHING</Link>
                 </li>
                 <li>
-                    <Link to="../products/clothing" onMouseOver={(e)=>popUp(e,"clothing")}>Clothing</Link>
+                    <Link to={`../collection/athleisure`} onMouseOver={(e)=>popUp(e,"athleisure")} onClick={() => handleCategoryClick("athleisure")}>ATHLEISURE</Link>
                 </li>
                 <li>
-                    <Link to="../products/athleasure" onMouseOver={(e)=>popUp(e,"athleisure")}>Athleisure</Link>
-                </li>
-                <li>
-                    <Link to="../products/bags" onMouseOver={(e)=>popUp(e,"bags")}>Bags</Link>
+                    <Link to={`../collection/bags`} onMouseOver={(e)=>popUp(e,"bags")} onClick={() => handleCategoryClick("bags")}>BAGS</Link>
                 </li>
             </ul>
             {
@@ -68,7 +76,7 @@ function NavHeader({isLoggedIn, cartCounter, handleLogin}){
                 {/* Set below navpane */}
                 
                 <div onMouseLeave={()=>setShowNavPane(false)}>
-                    <NavPane navLinkTxt={navLinkTxt}/>
+                    <NavPane navLinkTxt={navLinkTxt} selectedCategory={selectedCategory} selectedCategory2={selectedCategory2} updateCategory2={updateCategory2}/>
                 </div>
             </div>
             }
