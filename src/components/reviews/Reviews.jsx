@@ -6,8 +6,8 @@ import Cookies from 'js-cookie';
 function Reviews({isLoggedIn, product_id ,userData}){
     const formRef = useRef();
 
-    const postURL = `http://localhost:5000/api/v1/reviews`
-    const getURL = `http://localhost:5000/api/v1/reviews?reviews.product_id=${product_id}`
+    const postURL = `https://constance-luxury.onrender.com/api/v1/reviews`
+    const getURL = `https://constance-luxury.onrender.com/api/v1/reviews?reviews.product_id=${product_id}`
     const [reviews, setReviews] = useState([]);
 
     const handleSubmit = (e)=>{

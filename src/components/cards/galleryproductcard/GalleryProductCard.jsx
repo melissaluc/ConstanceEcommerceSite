@@ -10,7 +10,7 @@ function GalleryProductCard ({product}) {
     const [defaultColour, setDefaultColour]=useState("");
     
 
-    const URL = `http://localhost:5000/api/v1/product_inventory?category_1=${product.category_1}&category_2=${product.category_2}&category_3=${product.category_3}`
+    const URL = `https://constance-luxury.onrender.com/api/v1/product_inventory?category_1=${product.category_1}&category_2=${product.category_2}&category_3=${product.category_3}`
 
     const getUnique = (arr, attr)=>{
         

@@ -7,7 +7,7 @@ function LoginForm ({handleLogin, setUserData}) {
     const formRef = useRef();
     const navigate = useNavigate();
 
-    const loginURL = 'http://localhost:5000/api/v1/users/login'
+    const loginURL = 'https://constance-luxury.onrender.com/api/v1/users/login'
 
     const handleSubmit = (e) => {
         e.preventDefault();

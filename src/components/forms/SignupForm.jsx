@@ -8,7 +8,7 @@ function SignupForm () {
     const formRef = useRef();
     const navigate = useNavigate();
 
-    const URL = 'http://localhost:5000/api/v1/users/signup'
+    const URL = 'https://constance-luxury.onrender.com/api/v1/users/signup'
 
     const handleSubmit = (e) => {
         e.preventDefault();

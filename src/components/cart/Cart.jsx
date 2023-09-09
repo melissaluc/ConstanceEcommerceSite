@@ -8,7 +8,7 @@ import { useEffect } from 'react'
 
 function Cart({cart,setCart}){
     const navigate = useNavigate();
-    const URL = 'http://localhost:5000/api/v1/orders'
+    const URL = 'https://constance-luxury.onrender.com/api/v1/orders'
 
     function generateRandomString(length) {
         const charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";

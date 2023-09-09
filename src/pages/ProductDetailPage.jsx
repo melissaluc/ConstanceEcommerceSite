@@ -18,7 +18,9 @@ function ProductDetailPage({addToCart, isLoggedIn, userData}){
     const formRef = useRef();
     const quantityRef = useRef(0);
     const [quantityValue, setQuantityValue] = useState(1);
-    const URL = `http://localhost:5000/api/v1/product_inventory?products.category_1=${category_1}&products.category_2=${category_2}&products.category_3=${category_3}&products.product_name=${product_name}`
+    // Test
+    // const URL = `https://constance-luxury.onrender.com/api/v1/product_inventory?products.category_1=${category_1}&products.category_2=${category_2}&products.category_3=${category_3}&products.product_name=${product_name}`
+    const URL = `https://constance-luxury.onrender.com/api/v1/product_inventory?products.category_1=${category_1}&products.category_2=${category_2}&products.category_3=${category_3}&products.product_name=${product_name}`
 
     const getUnique = (arr, attr)=>{
         

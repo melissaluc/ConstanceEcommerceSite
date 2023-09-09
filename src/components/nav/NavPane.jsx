@@ -5,7 +5,7 @@ import {useState, useEffect} from 'react'
 import { useCategory2 } from "../Category2Context";
 
 function NavPane({navLinkTxt, selectedCategory, selectedCategory2, updateCategory2}){
-    const URL = 'http://localhost:5000/api/v1/product_inventory/categories'
+    const URL = 'https://constance-luxury.onrender.com/api/v1/product_inventory/categories'
 
     const [products,setProducts] = useState([])
 

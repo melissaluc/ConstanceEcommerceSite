@@ -13,7 +13,7 @@ function Gallery ({selectedCategory, selectedCategory2,getProductData, sortby_da
     
     useEffect(()=>{
         // Update the API URL based on selectedCategory2 and fetch products
-        let URL = `http://localhost:5000/api/v1/product_inventory/products?products.category_1=${category_1}`;
+        let URL = `https://constance-luxury.onrender.com/api/v1/product_inventory/products?products.category_1=${category_1}`;
         if (category_2) {
             URL += `&products.category_2=${category_2}`;
         }
