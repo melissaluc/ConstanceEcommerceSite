@@ -1,14 +1,15 @@
 import Cart from "../components/cart/Cart";
 
-function CartPage({cartCounter,setCartCounter}){
+function CartPage({cartCounter,setCartCounter, cart,setCart}){
     return(
         <div>
-            {cartCounter==0?
-            <h2>Nothing</h2>:
+            {!cart.length?<div>Empty</div>:
             <div>
-                <Cart/>
+                <Cart cart={cart} setCart={setCart}/>
             </div>
-            }    
+
+            }
+
 
         </div>
 

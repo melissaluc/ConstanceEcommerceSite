@@ -2,12 +2,12 @@ import { ReactComponent as SearchIcon } from "../../assets/icons/search.svg";
 import Select from 'react-select';
 import axios from 'axios'
 import { useState, useEffect, useRef } from "react";
-
+import { useNavigate } from "react-router-dom";
 
 function Search() {
     // const searchInput = useRef(baseURL);
     const baseURL = `http://localhost:5000/api/v1/product_inventory/product_in`
-
+    const navigate = useNavigate()
     const [SearchData,setSearchData] = useState([]);
     const [search, setSearch] = useState(false);
 
@@ -27,11 +27,10 @@ function Search() {
     },[])
 
     return (
-        <div>
+        <form onSubmit={()=>{navigate(`/login`)}}>
             <SearchIcon className='nav__icon'/>
-                <Select options={SearchData}
-                onChange={handleOnChange}/>
-        </div>
+                <input></input>
+        </form>
     )
 }
 

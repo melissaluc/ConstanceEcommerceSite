@@ -8,7 +8,6 @@ function ProductColorOptions({color}){
 
     return(
         <div className={`gallery__colorblock-${color}`}>
-
         </div>
     )
 

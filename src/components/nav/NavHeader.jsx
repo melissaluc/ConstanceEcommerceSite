@@ -1,4 +1,4 @@
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import './NavHeader.scss'
 import NavPane from "./NavPane";
@@ -7,13 +7,14 @@ import {ReactComponent as CartIcon} from '../../assets/icons/shopping-bag-outlin
 import {ReactComponent as BrandIcon} from '../../assets/icons/brandicon.svg'
 import { useCategory } from "../CategoryContext";
 import { useCategory2 } from "../Category2Context";
+import Button from '../buttons/Button'
 
 function NavHeader({isLoggedIn, cartCounter, handleLogin}){
     const { selectedCategory, updateCategory } = useCategory("");
     const { selectedCategory2, updateCategory2 } = useCategory2("");
     const [showNavPane, setShowNavPane] = useState(false)
     const [navLinkTxt, setNavLinkTxt] = useState("")
-    
+    const navigate = useNavigate();
 
     const handleCategoryClick = (category) => {
         updateCategory(category);
@@ -23,6 +24,7 @@ function NavHeader({isLoggedIn, cartCounter, handleLogin}){
 
     const handleLogout = ()=>{
         handleLogin(false)
+        navigate('/')
     }
 
 
@@ -48,7 +50,7 @@ function NavHeader({isLoggedIn, cartCounter, handleLogin}){
 
                     </div>
                     {isLoggedIn? <Link to="../user">Account</Link>:<Link to="../login">Login</Link>}
-                    {isLoggedIn && <button onClick={handleLogout}>Logout</button>}
+                    {isLoggedIn && <Button onClick={handleLogout} text='Logout' type='logout'>Logout</Button>}
                     <Search/>
                 </div>
             </div>
