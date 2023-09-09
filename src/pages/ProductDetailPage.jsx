@@ -5,7 +5,7 @@ import '../components/cards/galleryproductcard/ProductColorOptions/ProductColorO
 import './ProductDetailPage.scss'
 import Reviews from "../components/reviews/Reviews";
 import Button from '../components/buttons/Button'
-
+import ProductCarousel from "../components/carousel/ProductCarousel";
 function ProductDetailPage({addToCart, isLoggedIn, userData}){
     const [productData, setProductData]=useState([]);
     const [productDetail, setProductDetail]=useState(false);
@@ -89,7 +89,6 @@ function ProductDetailPage({addToCart, isLoggedIn, userData}){
                 const data = res.data
                 setProductData(data)
                 setProductDetail(data.filter((p)=>{return p.colour==colour.split("=")[1]}))
-                // console.log("Prodcut_detial",data.filter((p)=>{return p.colour==colour.split("=")[1]})[0])
                 const filterSizes = getUnique(data, "size")
                 const filterColours = getUnique(data, "colour")
                 setSizes(filterSizes)
@@ -105,8 +104,8 @@ function ProductDetailPage({addToCart, isLoggedIn, userData}){
    
     return(
         <div className="product">
-            <div className='product__image-gallery'>
-                Inser Carasoeul (mobile) doom scroll if tablet/desktop
+            <div className='product__left'>
+                <ProductCarousel/>
                 <Reviews isLoggedIn={isLoggedIn}  userData={userData} product_id={product_id} />
             
             </div>
