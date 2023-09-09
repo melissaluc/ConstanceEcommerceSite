@@ -4,6 +4,8 @@
 
 .nav {
     &__main-category{
+        display: flex;
+        flex-direction: column;
         max-width: 20vw;
     }
     &__secondary-category:hover{
