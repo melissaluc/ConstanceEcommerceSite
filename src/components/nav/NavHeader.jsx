@@ -55,13 +55,12 @@ function NavHeader({isLoggedIn, cartCounter, handleLogin}){
                 </div>
             </div>
             <ul className="nav__links">
-                <li key='contact'>
-                    {/* TODO: creater link components input text to show maintain the same dimentions and styling */}
+                {/* <li key='contact'>
                     <Link to="../contact">CONTACT</Link>
-                </li>
-                <li key='about'>
+                </li> */}
+                {/* <li key='about'>
                     <Link to="../about" >ABOUT</Link>
-                </li>
+                </li> */}
                 <li>
                     <Link to={`../collection/clothing`} onMouseOver={(e)=>popUp(e,"clothing")} onClick={() => handleCategoryClick("clothing")}>CLOTHING</Link>
                 </li>

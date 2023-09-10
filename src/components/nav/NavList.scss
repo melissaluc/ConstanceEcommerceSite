@@ -3,19 +3,43 @@
 @use '../../styles/variables' as *;
 
 .nav {
-    &__main-category{
+    &__category2{
+        // background-color: aqua;
         display: flex;
         flex-direction: column;
-        max-width: 20vw;
+        align-items: flex-start;
+        width:auto;
     }
-    &__secondary-category:hover{
+    &__category3:hover{
         background-color: rgba(216, 117, 255, 0.697);
         color:white;
+    }
+    &__category3{
+        @extend .nav__category2;
+        display: flex;
+        width: 100%;
     }
     &__pane{
         display: flex;
         justify-content: center;
         align-items: center;
+
     }
 
+    &__category-container{
+        display: flex;
+        color:black;
+        align-items: center;
+        
+    }
+    
+    &__category1-header{
+        font-size: 3rem;
+        margin-right:8rem;
+        padding-right:3rem;
+        border-right:0.5px solid black;
+    }
+    &__container{
+        padding:2rem;
+    }
 }

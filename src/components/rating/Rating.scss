@@ -1,0 +1,46 @@
+.rating-bar{
+    display: flexbox;
+    height:2rem;
+    transition: color .2s transform .2s;
+}
+
+// svg{
+//     height:2rem;
+//     width:2rem;
+// }
+
+
+
+.selected{
+    fill:blue;
+}
+
+
+path:hover {
+    fill:blue;
+
+} 
+
+
+.rating-bar svg:hover ~svg {
+    path{
+        fill:blue;
+
+    }
+
+} 
+
+// Rating:hover {
+//     svg, path {
+//         fill: blue;
+//     }
+// }
+
+input[type='radio']{
+    // opacity: 0;
+    // z-index: 1;
+    // top:50%;
+    // left:50%;
+
+}
+

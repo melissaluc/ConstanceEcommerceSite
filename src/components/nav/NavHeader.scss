@@ -10,10 +10,13 @@
 }
 
 .nav {
+    width:100%;
+    padding:1rem;
     z-index: 5;
     background-color:rgba(255, 255, 255, 0.777);
     position: sticky;
     top:0;
+
     transition: background-color   0.75s ease-out 1ms;
     
     &__logo{
@@ -27,6 +30,8 @@
     &__links>*:hover {
         // background-color: aqua;
         border-bottom: 5px solid rgba(13, 13, 170, 0.551);
+        padding-bottom: 1rem;
+
     }
 
     &__top{
@@ -38,6 +43,7 @@
     &__links{
         display: flex;
         justify-content: space-around;
+        margin:2rem;
     }
     &__icons {
         height:1rem;

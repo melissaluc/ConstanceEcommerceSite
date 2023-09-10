@@ -12,17 +12,17 @@ function NavList({products, navLinkTxt,selectedCategory2, updateCategory2 }){
 
 
     return (
-        <div className='nav__main-category'>
+        <div className='nav__container'>
             {products.filter((p)=>{return p.category_1==navLinkTxt}).map(item=>{
                 return(
-                    <div key={item.category_1}>
-                        <h3 className='nav__main-category'>{item.category_1.toUpperCase()}</h3>
-                        <ul>
+                    <div className='nav__category-container' key={item.category_1}>
+                        <p className='nav__category1-header'>{item.category_1.toUpperCase()}</p>
+                        <ul className='nav__category2'>
                             {Object.keys(item.category_2).map((key)=>{
                                 return(
-                                    <Link key={key.category_2} to={`../collection/${navLinkTxt}/${key}`} onClick={()=>{handleCategoryClick(key)}}>
-                                        <li className='nav__secondary-category'>
-                                            {key.replace("_"," ")}
+                                    <Link className='nav__category3' key={key.category_2} to={`../collection/${navLinkTxt}/${key}`} onClick={()=>{handleCategoryClick(key)}}>
+                                        <li key={key.category_2}>
+                                            {key.replace("_"," ").toUpperCase()}
                                         </li>
                                     </Link>
                                 )

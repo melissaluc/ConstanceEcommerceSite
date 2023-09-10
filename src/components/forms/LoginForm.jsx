@@ -25,12 +25,12 @@ function LoginForm ({handleLogin, setUserData}) {
             Cookies.set('last_name',JSON.stringify(res.data.last_name) , { expires: 7 });
             Cookies.set('user_id',JSON.stringify(res.data.user_id) , { expires: 7 });
             setUserData(res.data)
-            console.log(res.data)
+            // console.log(res.data)
             navigate(`/user`)
             handleLogin(true)
             
         })
-        .catch((err)=>{console.log(err)})
+        .catch((err)=>{console.log(err); })
         
     }
 

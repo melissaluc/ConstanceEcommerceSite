@@ -7,20 +7,23 @@ import Reviews from "../components/reviews/Reviews";
 import Button from '../components/buttons/Button'
 import ProductCarousel from "../components/carousel/ProductCarousel";
 function ProductDetailPage({addToCart, isLoggedIn, userData}){
-    const [productData, setProductData]=useState([]);
-    const [productDetail, setProductDetail]=useState(false);
-    const [product_id, setProductId]=useState('');
-    const [uniqueSizes, setSizes] = useState([]);
-    const [uniqueColours, setColours] = useState([]);
-    const [selectedColour, setSelectedColour] = useState("");
-    const [selectedSize, setSelectedSize] = useState("");
     const { category_1, category_2, category_3, product_name, colour } =useParams();
     const formRef = useRef();
+    const [productData, setProductData]=useState([]);
+    const [productDetail, setProductDetail]=useState(false);
+    const [product_id, setProductId]=useState(false);
+    const [uniqueSizes, setSizes] = useState([]);
+    const [uniqueColours, setColours] = useState([]);
+    const [selectedColour, setSelectedColour] = useState(colour.split("=")[0]);
+    const [selectedSize, setSelectedSize] = useState("");
     const quantityRef = useRef(0);
     const [quantityValue, setQuantityValue] = useState(1);
-    // Test
-    // const URL = `https://constance-luxury.onrender.com/api/v1/product_inventory?products.category_1=${category_1}&products.category_2=${category_2}&products.category_3=${category_3}&products.product_name=${product_name}`
+    
     const URL = `https://constance-luxury.onrender.com/api/v1/product_inventory?products.category_1=${category_1}&products.category_2=${category_2}&products.category_3=${category_3}&products.product_name=${product_name}`
+
+
+
+
 
     const getUnique = (arr, attr)=>{
         
@@ -55,8 +58,8 @@ function ProductDetailPage({addToCart, isLoggedIn, userData}){
           }
 
         // const selectedColor = selectedColorInput.value;
-        const selectedColor = selectedColour;
-        const selectedSize = selectedSizeInput.value;
+        // const selectedColor = selectedColour;
+        // const selectedSize = selectedSize;
 
         // Get the quantity from the form
         const quantityInput = formRef.current.querySelector('input[name="input_quantity"]');
@@ -70,11 +73,11 @@ function ProductDetailPage({addToCart, isLoggedIn, userData}){
 
         const cartItem = {
             product_id: productData[0].product_id, // Assuming you want the product_id from the first product in productData
-            product_uid: productData.filter((p)=>{return(p.size===selectedSize && p.colour===selectedColor)})[0].product_uid, // Assuming you want the product_id from the first product in productData
+            product_uid: productData.filter((p)=>{return(p.size===selectedSize && p.colour===selectedColour)})[0].product_uid, // Assuming you want the product_id from the first product in productData
             product_name: product_name,
             size: selectedSize,
             quantity: quantity,
-            colour: selectedColor,
+            colour: selectedColour&&selectedColorInput.value,
             category_1:category_1,
             category_2:category_2,
             category_3:category_3
@@ -102,25 +105,31 @@ function ProductDetailPage({addToCart, isLoggedIn, userData}){
                 console.log(err)
             })
   
-    },[category_1, category_2, category_3, product_name, colour])
+    },[category_1, category_2, category_3, product_name, selectedColour])
    
     return(
         <div className="product">
             <div className='product__left'>
                 <ProductCarousel/>
-                <Reviews isLoggedIn={isLoggedIn}  userData={userData} product_id={product_id} />
+                {product_id?
+                    <Reviews isLoggedIn={isLoggedIn}  userData={userData} product_id={product_id} product_name={product_name}/>
+                :
+                    <div>Loading</div>
+                }
             
             </div>
             <div className="product__product-details">
                 <form onSubmit={handleSubmit} ref={formRef}>
-                    <h1>{product_name.replaceAll("_"," ").toUpperCase()}</h1>
-                    <p>{colour.split("=")[1]}</p>
+                    <div className="product__product-details-header-container">
+                        <h1 className="product__product-details-header">{product_name.replaceAll("_"," ").toUpperCase()}</h1>
+                        <div className="product__product-details-colour">{selectedColour && colour.split("=")[1]}</div>
+                    </div>
                     <div className="product__product-details-colours options">
                         colours
                         <fieldset>
                         {uniqueColours.map((p)=>{
                             return (
-                                <div key={p.colour} className="product__colour" onClick={(e)=>{setSelectedColour(p.colour); e.stopPropagation(); console.log(selectedColour)}}>
+                                <div key={p.colour} className={`product__colour ${selectedColour === p.colour ? 'selected-color' : ''}`} onClick={(e)=>{setSelectedColour(p.colour); e.stopPropagation(); console.log(selectedColour)}}>
                                             <input name='input_colour' id={`colour_${p.colour}`} type='radio' value={`${p.colour}`}></input>
                                             <label aria-hidden="true" className={`product__colorblock-${p.colour}`} name='input_size'>
                                                 {/* <span>{p.colour}</span> */}
@@ -136,7 +145,7 @@ function ProductDetailPage({addToCart, isLoggedIn, userData}){
                         <fieldset>
                         {uniqueSizes.map((p)=>{
                             return (
-                                <div key={p.size} className="product__size selected" onClick={(e)=>{setSelectedSize(p.size); e.stopPropagation(); console.log(selectedSize)}}>
+                                <div key={p.size} className={selectedSize==p.size? "product__size selected-size" :"product__size"} onClick={(e)=>{setSelectedSize(p.size); e.stopPropagation(); console.log(selectedSize)}}>
                                     <input type='radio' name='input_size'  id={`size_${p.size}`} value={`${p.size}`}></input>
                                     <label aria-hidden="true" name='input_size'>
                                         <span>{`${p.size.toUpperCase()}`}</span>
