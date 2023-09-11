@@ -125,7 +125,7 @@ function ProductDetailPage({addToCart, isLoggedIn, userData}){
                         <div className="product__product-details-colour">{selectedColour && colour.split("=")[1]}</div>
                     </div>
                     <div className="product__product-details-colours options">
-                        colours
+                        <label>COLOURS</label>
                         <fieldset>
                         {uniqueColours.map((p)=>{
                             return (
@@ -141,11 +141,11 @@ function ProductDetailPage({addToCart, isLoggedIn, userData}){
                         </fieldset>
                     </div>
                     <div className="product__product-details-sizes options">
-                        sizes
+                        <label>SIZES</label>
                         <fieldset>
                         {uniqueSizes.map((p)=>{
                             return (
-                                <div key={p.size} className={selectedSize==p.size? "product__size selected-size" :"product__size"} onClick={(e)=>{setSelectedSize(p.size); e.stopPropagation(); console.log(selectedSize)}}>
+                                <div key={p.size} className={(selectedSize==p.size)? "product__size selected-size" :"product__size"} onClick={(e)=>{setSelectedSize(p.size); e.stopPropagation(); console.log(selectedSize)}}>
                                     <input type='radio' name='input_size'  id={`size_${p.size}`} value={`${p.size}`}></input>
                                     <label aria-hidden="true" name='input_size'>
                                         <span>{`${p.size.toUpperCase()}`}</span>
@@ -155,13 +155,24 @@ function ProductDetailPage({addToCart, isLoggedIn, userData}){
                         })}
                         </fieldset>
                     </div>
-                    {productDetail?<div>{productDetail[0].description}</div>:<div>Prodcut</div>}
+                    {productDetail&&<div className="product__product-details-notes">{productDetail[0].description}</div>}
                     <div>
-                    {productDetail?<div>{productDetail[0].materials}</div>:<div>Prodcut</div>}
+                    <div className="product__product-details-materials">
+                        <p className="product__product-details-materials-p">Materials</p>
+                        {productDetail?<div className="product__product-details-materials-list">{productDetail[0].materials}</div>:<div>Product</div>}
+
                     </div>
-                    <label name="input_quantity">quantity</label>
-                    <input name="input_quantity" value={quantityValue} onChange={(e) => setQuantityValue(e.target.value)}></input>
-                    <Button type='submit' text="ADD TO CART"/>
+                    </div>
+                    <div className="product__product-details-quanity">
+            
+                            <label name="input_quantity">QUANTITY</label>
+                            <input name="input_quantity" value={quantityValue} onChange={(e) => setQuantityValue(e.target.value)}></input>
+
+                    </div>
+                    <div className="product__product-details-submit">
+                        <Button type='submit' text="ADD TO CART"/>
+
+                    </div>
                     {/* <input type="submit" className="button" value="Add to cart"></input> */}
                 </form>
             </div>

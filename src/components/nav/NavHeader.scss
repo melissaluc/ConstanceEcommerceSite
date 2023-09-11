@@ -43,12 +43,41 @@
     &__links{
         display: flex;
         justify-content: space-around;
-        margin:2rem;
+        margin:1rem;
     }
     &__icons {
-        height:1rem;
+        height:2rem;
         width: auto;
     }
+    &__right{
+        // width: 15vw;
+    }
+    &__user{
+        margin: 0.5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    &__user-status{
+        margin:1rem;
+        border-left:1px solid black;
+        padding-left:1rem;
+        align-items: center;
+    }
+    &__cart{
+        display: flex;
+        align-items: center;
+    }
+    &__search{
+        display: flex;
+        justify-content: flex-end;
+    }
+    &__user-button{
+        border-right:1px solid black;
+        padding-right:1rem;
+        
+    }
+    
 }
 
 // @keyframes navTransition {

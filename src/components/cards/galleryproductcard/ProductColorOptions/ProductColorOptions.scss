@@ -65,6 +65,7 @@
     &__colorblock-blue{
       @extend .gallery__colorblock-row;
         background-color: rgb(0, 4, 255);
+
         
     }
     &__colorblock-tan{
@@ -117,7 +118,7 @@
 
     }
     .product__colour{
-      margin: 0;
+      margin: 0.5rem;
       padding: 0;
     }
 }

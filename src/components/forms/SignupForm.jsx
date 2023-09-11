@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import {useRef, useState, useEffect} from 'react'
-
+import './SignupForm.scss'
 
 function SignupForm () {
 
@@ -38,33 +38,57 @@ function SignupForm () {
         
     }
     return (
-        <div>
-            <form onSubmit={(e)=>handleSubmit(e)} ref={formRef}>
-                <label name='email_address'>Email</label>
-                <input name='email_address' placeholder='E.g. my-email@constance.com'></input>
-                <label name='password'>Password</label>
-                <input name='password' placeholder='Password'></input>
-                <label name='phone_number'>Phone Number</label>
-                <input name='phone_number' placeholder='Phone Number E.g. #+(###)-###-###'></input>
-                <label name='first_name'>First Name</label>
-                <input name='first_name' placeholder='First Name'></input>
-                <label name='last_name'>Last Name</label>
-                <input name='last_name' placeholder='Last Name'></input>
-                <label name='birthdate'>Birthdate</label>
-                <input name='birthdate' placeholder='Birthdate'></input>
-                <label name='address_1'>Address 1</label>
-                <input name='address_1' placeholder='Address'></input>
-                <label name='address_2'>Address 2</label>
-                <input name='address_2' placeholder='E.g. Unit # 101'></input>
-                <label name='city'>City</label>
-                <input name='city' placeholder='City'></input>
-                <label name='state'>State</label>
-                <input name='state' placeholder='State'></input>
-                <label name='postalcode'>Postal Code</label>
-                <input name='postalcode' placeholder='Postal Code'></input>
-                <label name='country'>Country</label>
-                <input name='country' placeholder='Country'></input>
-                <input type="submit" className="button" value="Submit"/>
+        <div className="signup__container">
+            <form className="signup__form" onSubmit={(e)=>handleSubmit(e)} ref={formRef}>
+                <div className="signup__form-inout-grp">
+                    <label className="signup__form-labels" name='email_address'>Email</label>
+                    <input name='email_address' placeholder='E.g. my-email@constance.com'></input>
+                </div>
+                <div className="signup__form-inout-grp">
+                    <label className="signup__form-labels" name='password'>Password</label>
+                    <input name='password' placeholder='Password'></input>
+                </div>
+                <div className="signup__form-inout-grp">
+                    <label className="signup__form-labels" name='phone_number'>Phone Number</label>
+                    <input name='phone_number' placeholder='Phone Number E.g. #+(###)-###-###'></input>
+                </div>
+                <div className="signup__form-inout-grp">
+                    <label className="signup__form-labels" name='first_name'>First Name</label>
+                    <input name='first_name' placeholder='First Name'></input>
+                </div>
+                <div className="signup__form-inout-grp">
+                    <label className="signup__form-labels" name='last_name'>Last Name</label>
+                    <input name='last_name' placeholder='Last Name'></input>
+                </div>
+                <div className="signup__form-inout-grp">
+                    <label className="signup__form-labels" name='birthdate'>Birthdate</label>
+                    <input name='birthdate' placeholder='Birthdate'></input>
+                </div>
+                <div className="signup__form-inout-grp">
+                    <label className="signup__form-labels" name='address_1'>Address 1</label>
+                    <input name='address_1' placeholder='Address'></input>
+                </div>
+                <div className="signup__form-inout-grp">
+                    <label className="signup__form-labels" name='address_2'>Address 2</label>
+                    <input name='address_2' placeholder='E.g. Unit # 101'></input>
+                </div>
+                <div className="signup__form-inout-grp">
+                    <label className="signup__form-labels" name='city'>City</label>
+                    <input name='city' placeholder='City'></input>
+                </div>
+                <div className="signup__form-inout-grp">
+                    <label className="signup__form-labels" name='state'>State</label>
+                    <input name='state' placeholder='State'></input>
+                </div>
+                <div className="signup__form-inout-grp">
+                    <label className="signup__form-labels" name='postalcode'>Postal Code</label>
+                    <input name='postalcode' placeholder='Postal Code'></input>
+                </div>
+                <div className="signup__form-inout-grp">
+                    <label className="signup__form-labels" name='country'>Country</label>
+                    <input name='country' placeholder='Country'></input>
+                </div>
+                <input  type="submit" className='signup__submit-button button' value="Submit"/>
             </form>
         </div>
     )

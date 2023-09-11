@@ -40,24 +40,25 @@ function FilterPane({data,URL}){
 
     return(
         <div className="filterpane">
-
-        {    category.map((i)=>{
-            return(
-                <div className="filterpane__category2">
-                    <Link to={`/collection/${category_1}`}><h3>{i.category_2.replaceAll("_"," | ").toUpperCase()}</h3></Link>
-                    {subcategory.filter((p)=>p.category_2 === i.category_2).map((i)=>{
-                       return(
-                        <div className="filterpane__category3">
-                            <Link to={`/collection/${category_1+"/"+i.category_2+"/"+i.category_3}`}>
-                            {i.category_3.replaceAll("_"," ").toUpperCase()}
-                            </Link>
-                        </div>
-                       ) 
-                    })}
-                </div>
-                )  
-        })
-        }
+        <div className="filterpane__group">
+                        {    category.map((i)=>{
+                            return(
+                                <div className="filterpane__category2">
+                                    <Link to={`/collection/${category_1}`}><h3>{i.category_2.replaceAll("_"," | ").toUpperCase()}</h3></Link>
+                                    {subcategory.filter((p)=>p.category_2 === i.category_2).map((i)=>{
+                                    return(
+                                        <div className="filterpane__category3">
+                                            <Link to={`/collection/${category_1+"/"+i.category_2+"/"+i.category_3}`}>
+                                            {i.category_3.replaceAll("_"," ").toUpperCase()}
+                                            </Link>
+                                        </div>
+                                    ) 
+                                    })}
+                                </div>
+                                )  
+                        })
+                        }
+            </div>
         </div>
     )
 }

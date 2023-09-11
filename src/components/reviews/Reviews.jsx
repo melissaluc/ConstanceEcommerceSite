@@ -23,25 +23,25 @@ function Reviews({isLoggedIn, product_id ,userData}){
 
     const handleSubmit = (e)=>{
         e.preventDefault();
-        const reviewValue = formRef.current.review.value;
+        // console.log("dsfsdfsd",formRef.current)
         // const ratingValue = formRef.current.rating.value;
         const user_id = Cookies.get('user_id').replace(/"/g, '')
         // TODO: check if user made a comment and want to edit --put ep
         const product_review ={
             product_id:product_id,
             user_id:user_id,
-            review:reviewValue.value,
+            review:text,
             // rating:ratingValue,
             rating:0,
             first_name:Cookies.get('first_name').replaceAll(/"/g, ""),
             last_name:Cookies.get('last_name').replaceAll(/"/g, "")
         }
-
+        console.log(product_review)
         const postReview = 
             {
                 product_id:product_id,
                 user_id:user_id,
-                review:reviewValue,
+                review:text,
                 // rating:ratingValue,
                 rating:0,
                 headers:{
@@ -56,6 +56,8 @@ function Reviews({isLoggedIn, product_id ,userData}){
             setText('')
         })
         .catch((err)=>{console.log(err)})
+        setReviews([...reviews, product_review]);
+        setText('')
     }
 
 
@@ -85,23 +87,26 @@ function Reviews({isLoggedIn, product_id ,userData}){
                 <Button type='submit' onClick={(e)=>handleSubmit(e)} text='SUBMIT'></Button>
             </form>
             :false}
-            {reviews.length>0? reviews.map((r)=>{
+            {reviews.length>0? 
+            <div className='review-section__container'>
+        {    reviews.map((r)=>{
                 return(
-                    <div key={r.user_id}>
-                    <div>
-                        <div>
+                    <div className='review-section__review-container' key={r.user_id}>
+                    <div className='review-section__review-info'>
+                        <div className='review-section__review-info-top'>
                             <h3>{`${r.first_name} ${r.last_name}`}</h3>
-                            <h3>{`${r.updated_on}`}</h3>
-                        </div>
-                        <Rating/>
+                            <h3>{`${r.updated_on ? r.updated_on: new Date().toLocaleDateString()}`}</h3>
+                       </div>
+                        {/* <Rating/> */}
                     </div>
 
-                    <div>
+                    <div className='review-section__review'>
                         <p>{`${r.review}`}</p>
                     </div>
                 </div>
                 )
-            })
+            })}
+            </div>
         :
         <div className='review-section__no-reviews'>
             <p>No reviews yet</p>

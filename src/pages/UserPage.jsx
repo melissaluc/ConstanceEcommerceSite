@@ -1,6 +1,11 @@
 function UserPage({userData}){
     return(
-        <h1>View your order history {userData.first_name}</h1>
+        <div>
+            <h1>Hello {userData.first_name}</h1>
+            <div>
+                In the future you will be able to see data on your purchase activities!
+            </div>
+        </div>
     )
 }
 

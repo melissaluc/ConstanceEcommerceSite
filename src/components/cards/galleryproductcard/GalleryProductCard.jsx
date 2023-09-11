@@ -53,7 +53,7 @@ function GalleryProductCard ({product}) {
                     {
                         getUnique(productDetails,"colour").map((p, index)=>{
                             return(
-                                 <Link to={`/collection/${product.category_1}/${product.category_2}/${product.category_3}/${p.product_name}/colour=${p.colour}`} className='gallery__colorblock-row'><ProductColorOptions color={p.colour}/></Link>
+                                 <Link to={`/collection/${product.category_1}/${product.category_2}/${product.category_3}/${p.product_name}/colour=${p.colour}`} className='gallery__colorblock-row product__colour'><ProductColorOptions color={p.colour}/></Link>
                             )
                         })
 

@@ -34,4 +34,33 @@
         margin:100px;
     }
 }
+
+&__container{
+    border-top: 1px solid black;
+    margin-top: 5rem;;
+    padding:2rem;
+    width: 90%;
+}
+&__container:last-child{
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+
+}
+&__review-container{
+    border-top: 1px solid black;
+}
+&__review-info{
+}
+&__review-info-top{
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    
+}
+&__review{
+//    border-top: 1px solid black; 
+   padding:1rem;
+
+}
+
 }

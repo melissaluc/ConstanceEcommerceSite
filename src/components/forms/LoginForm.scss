@@ -1,0 +1,28 @@
+.login {
+    &__container{
+        margin:1rem 30rem;
+    }
+    &__form{
+        display: flex;
+        flex-direction: column;
+        border: 1px solid grey;
+        padding:10rem;
+
+    }
+    &__signup-container{
+        margin-top: 5rem;
+        display: flex;
+        flex-direction: column;
+        padding:1rem;
+    }
+    &__signup-button{
+        padding: 1rem;;
+    }
+    &__form-labels{
+        align-self: flex-start;
+        padding-top:1rem;
+    }
+    &__form-button{
+        margin:1rem;
+    }
+}

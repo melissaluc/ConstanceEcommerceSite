@@ -1,0 +1,24 @@
+.signup{
+    &__container{
+        
+        margin:1rem 30rem;
+        border: 1px black solid;
+        padding: 5rem 15rem;
+
+    }
+    &__form-inout-grp{
+        display: flex;
+        flex-direction: column;
+        margin:0.1rem;
+    }
+    &__form{
+        display: flex;
+        flex-direction: column;
+    }
+    &__form-labels{
+        align-self: flex-start;
+    }
+    &__submit-button{
+        margin: 1rem;
+    }
+}

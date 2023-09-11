@@ -1,0 +1,58 @@
+input[type=text].search{
+	position: relative;
+	font-size: 18px;
+}
+
+input.hidden{
+  width:0px;
+}
+
+input[type=text].search, input[type=text].search:focus,nput[type=text].search:active  {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 2px solid rgb(0, 0, 0);
+    outline: none;
+  }
+
+
+
+@keyframes borderMove {
+    0% {
+      width: 0; /* Start with zero width */
+    }
+    100% {
+      width: 50%; /* End with full width */
+    }
+  }
+  
+  /* Apply the animation to the search input */
+  .search {
+    border: none;
+    border-bottom: 2px solid transparent;
+    animation: borderMove 0.5s ease-in-out; /* Set the animation properties */
+    animation-fill-mode: forwards; /* Keep the final state of the animation */
+   
+  }
+  
+  /* Define the style when the animation is complete */
+  .search.animation-complete {
+    border-bottom: 2px solid blue; /* Set the final border color */
+    animation: none; /* Disable the animation */
+  }
+
+  .search-container{
+    &__form{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+}
+  .nav__icon {
+    height:2rem;
+    width: auto;
+    align-self: flex-end;
+}

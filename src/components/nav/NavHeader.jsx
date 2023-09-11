@@ -17,6 +17,7 @@ function NavHeader({isLoggedIn, cartCounter, handleLogin}){
     const navigate = useNavigate();
 
     const handleCategoryClick = (category) => {
+        
         updateCategory(category);
         updateCategory2(null)
       };
@@ -42,16 +43,22 @@ function NavHeader({isLoggedIn, cartCounter, handleLogin}){
                     <BrandIcon className='nav__logo'/>
                 </Link>
 
-                <div>
-                    <div>
-                        <Link to="../cart"><CartIcon className='nav__icons'/></Link>
-                        <Link to="../cart">{`(${cartCounter})`}</Link>
-                        <Link to="../cart">Cart</Link>
+                <div className="nav__right">
+                    <div className="nav__user">
+                        <div className="nav__cart">
+                            <Link to="../cart"><CartIcon className='nav__icons'/></Link>
+                            <Link to="../cart">{`(${cartCounter})`}</Link>
+
+                        </div>
+                        {isLoggedIn? <Link className="nav__user-status" to="../user">Account</Link>:<Link className="nav__user-status" to="../login">Login</Link>}
+                        <div>
+                         {isLoggedIn && <Button className='nav__user-button' onClick={handleLogout} text='Logout' type='logout'>Logout</Button>}
+                        </div>
 
                     </div>
-                    {isLoggedIn? <Link to="../user">Account</Link>:<Link to="../login">Login</Link>}
-                    {isLoggedIn && <Button onClick={handleLogout} text='Logout' type='logout'>Logout</Button>}
-                    <Search/>
+                    <div className="nav__search">
+                        < Search/>
+                    </div>
                 </div>
             </div>
             <ul className="nav__links">

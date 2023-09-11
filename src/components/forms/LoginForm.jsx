@@ -2,6 +2,8 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import {useRef, useState, useEffect} from 'react'
 import Cookies from 'js-cookie';
+import './LoginForm.scss'
+import Button from '../buttons/Button'
 
 function LoginForm ({handleLogin, setUserData}) {
     const formRef = useRef();
@@ -35,16 +37,18 @@ function LoginForm ({handleLogin, setUserData}) {
     }
 
     return (
-        <div>
-            <form onSubmit={(e)=>handleSubmit(e)} ref={formRef}>
-                <label name='email'>Email</label>
+        <div className="login__container">
+            <form className="login__form" onSubmit={(e)=>handleSubmit(e)} ref={formRef}>
+                <label className="login__form-labels" name='email'>Email</label>
                 <input name='email' type="text" placeholder='e.g. email-address@constance.com'></input>
-                <label name='password'>Password</label>
+                <label className="login__form-labels" name='password'>Password</label>
                 <input name='password' type="text" placeholder='Enter Password'></input>
-                <input type="submit" className="button" value="Login"/>
+                <input className="login__form-button button" type="submit" value="Login"/>
             </form>
-            Need an account?
-            <Link to='/signup'><button>Sign-up</button></Link>
+            <div className="login__signup-container">
+                <p>Need an account?</p>
+                <Link className='login__signup-button' to='/signup'><Button text='Sign-up'/></Link>
+            </div>
         </div>
     )
 }

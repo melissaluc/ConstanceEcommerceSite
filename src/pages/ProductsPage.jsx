@@ -16,11 +16,8 @@ function ProductsPage(){
     const [URL, setURL] = useState("");
     const {category_1,category_2}=useParams();
 
-    // useEffect(()=>{
-    //     getProductData()
-    // }
 
-    // ,[])
+
 
     const getProductData = (data, URL)=>{
         setData(data)
@@ -36,9 +33,11 @@ function ProductsPage(){
                 <FilterPane data={data} URL={URL}/>
             </div>
             <div>
-                <h1>{category_1}</h1>
-                <SortPane  data={data}/>
-                <Gallery getProductData={getProductData}/>
+                <h1 className="product-page__header">{category_1}</h1>
+                {/* <SortPane  data={data}/> */}
+                <div className="product-page__galllery">
+                    <Gallery getProductData={getProductData}/>
+                </div>
             </div>
             </div>
             }
