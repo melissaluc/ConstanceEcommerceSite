@@ -66,7 +66,8 @@
     }
     input[type='radio']{
         opacity: 0;
-        z-index: 1;
+        transform: scale(2);
+        z-index: 10;
         position: absolute;
         // top:50%;
         // left:50%;
@@ -89,6 +90,7 @@
 
     &__size{
         background-color: rgb(231, 231, 231);
+        z-index: 3;
     }
 
     &__size .selected{
@@ -101,6 +103,7 @@
         background-color: black;
         color: white;
         border: 1px solid black;
+        z-index: 3;
 
     }
 

@@ -26,7 +26,16 @@ function Cart({cart,setCart}){
 
       },[cart])
 
-
+      const sumTotal =(arrayOfObjects)=>{
+          const sum = arrayOfObjects.reduce((accumulator, currentObject) => {
+              // Add the current object's value to the accumulator
+              console.log((parseFloat(currentObject.price)*parseInt(currentObject.quantity)))
+              return accumulator + (parseFloat(currentObject.price)*parseInt(currentObject.quantity));
+            }, 0);
+            return sum
+            console.log(sum)
+      }
+ 
 
       const handleSubmit = (e)=>{
   
@@ -64,10 +73,14 @@ function Cart({cart,setCart}){
                 { !cart.length? <h1>Empty</h1>: cart.map((i)=>{
                     return(
                         <CartProductCard item={i}/>
+                        
 
                     )
                 }
                 )}
+                <div>
+                    TOTAL: $ {sumTotal(cart).toLocaleString()}
+                </div>
             </div>
             {!cart.length?<div></div>:<Button onClick={(e)=>{handleSubmit(e)}}text="CHECKOUT" type="submit">Checkout</Button>}
         </div>

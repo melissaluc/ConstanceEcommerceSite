@@ -77,6 +77,7 @@ function ProductDetailPage({addToCart, isLoggedIn, userData}){
             product_name: product_name,
             size: selectedSize,
             quantity: quantity,
+            price: productDetail[0].price,
             colour: selectedColour&&selectedColorInput.value,
             category_1:category_1,
             category_2:category_2,

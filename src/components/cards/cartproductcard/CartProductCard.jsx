@@ -28,6 +28,12 @@ function CartProductCard ({item}) {
                 <p>
                     quantity: {item.quantity}
                 </p>
+                <p>
+                    price: {item.price}
+                </p>
+                <p>
+                    $ {(parseInt(item.quantity)*parseFloat(item.price)).toLocaleString()}
+                </p>
 
             </div>
         </div>
