@@ -4,10 +4,11 @@ import { useState } from 'react'
 import {useParams } from "react-router-dom";
 
 
-function NavList({products, navLinkTxt,selectedCategory2, updateCategory2 }){
+function NavList({products, navLinkTxt,selectedCategory2, updateCategory2,setShowNavPane }){
 
     const handleCategoryClick = (category) => {
         updateCategory2(category);
+        setShowNavPane(false)
       };
 
 

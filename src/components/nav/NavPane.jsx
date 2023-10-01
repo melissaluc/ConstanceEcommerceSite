@@ -4,7 +4,7 @@ import axios from 'axios'
 import {useState, useEffect} from 'react'
 import { useCategory2 } from "../Category2Context";
 
-function NavPane({navLinkTxt, selectedCategory, selectedCategory2, updateCategory2}){
+function NavPane({navLinkTxt, selectedCategory, selectedCategory2, updateCategory2, setShowNavPane}){
     const URL = 'https://constance-luxury.onrender.com/api/v1/product_inventory/categories'
 
     const [products,setProducts] = useState([])
@@ -28,10 +28,7 @@ function NavPane({navLinkTxt, selectedCategory, selectedCategory2, updateCategor
 
     return(
         <div className='nav__pane'>
-
-            {/* I'm a Pain! {navLinkTxt} */}
-            <NavList products={products} navLinkTxt={navLinkTxt} selectedCategory2={selectedCategory2} updateCategory2={updateCategory2}/>
-            {/* <NavList section='bags' products={bags}/> */}
+            <NavList setShowNavPane={setShowNavPane} products={products} navLinkTxt={navLinkTxt} selectedCategory2={selectedCategory2} updateCategory2={updateCategory2}/>
         </div>
     )}
 

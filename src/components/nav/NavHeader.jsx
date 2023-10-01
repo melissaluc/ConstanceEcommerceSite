@@ -84,7 +84,7 @@ function NavHeader({isLoggedIn, cartCounter, handleLogin}){
                 {/* Set below navpane */}
                 
                 <div onMouseLeave={()=>setShowNavPane(false)}>
-                    <NavPane navLinkTxt={navLinkTxt} selectedCategory={selectedCategory} selectedCategory2={selectedCategory2} updateCategory2={updateCategory2}/>
+                    <NavPane setShowNavPane={setShowNavPane} navLinkTxt={navLinkTxt} selectedCategory={selectedCategory} selectedCategory2={selectedCategory2} updateCategory2={updateCategory2}/>
                 </div>
             </div>
             }
